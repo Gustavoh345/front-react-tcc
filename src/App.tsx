@@ -1,38 +1,54 @@
 import { useState } from 'react'
 
 
+
 function App() {
 
   return (
     //tela de fundo
-    <div className='w-screen h-screen bg-black'>
-      <div className='p-6'>
-        <img src="" alt="Logo omnimarket"/>
-        <h1 className='text-white justify-center'>OmniMarket</h1>
-        <h4 className='text-white justify-center'>Compre e venda em um só lugar!</h4>
+    <div className='w-screen h-screen bg-black m-0 '>
+      <div className='p-6 flex flex-col justify-center'>
+        <img src="" alt="Logo omnimarket" className='flex justify-center'/>
+        <h1 className='text-white flex justify-center text-[80px] hover:animate-spin'>OmniMarket</h1>
+        <h4 className='text-white flex justify-center text-[20px]'>Compre e venda em um só lugar!</h4>
       </div>
 
       {/*div da parte central(inputs, botoes)*/}
-      <div className='bg-[#0f0f0f] rounded-3xl border-gray-950 flex justify-center h-[200] w-[200]'>
-        <div className='flex flex-col'>
+      <div className="flex items-center justify-center bg-black">
+        <div className='bg-[#0f0f0f] rounded-3xl border-gray-950 flex justify-center h-[500px] w-[400px]  hover:animate-spin' >
+    
+          <div className='flex flex-col'>
+            <div className='flex flex-col p-3'>
+              <label className='text-white'>E-MAIL</label>
+              <input type="email" placeholder='Digite o seu email' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white'/>
+            </div>
 
-          <div className='flex flex-col p-2'>
-            <label className='flex justify-start'>E-MAIL</label>
-            <input type="email" placeholder='Digite o seu email' className=' rounded-2xl p-1 bg-black placeholder-white justify-start'/>
+          <div className='flex flex-col p-3'>
+            <label className='text-white'>SENHA</label>
+            <input type="password" placeholder='Digite a sua senha' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white'/>
           </div>
 
-          <div className='flex flex-col p-2'>
-            <label className='flex justify-start'>SENHA</label>
-            <input type="password" placeholder='Digite a sua senha' className='rounded-2xl p-1 bg-black placeholder-white'/>
-          </div>
-
-          <div className='flex justify-between gap-12'>
-            <label>
-              <input type="checkbox" className='accent-black cursor-pointer '/>
+          <div className='flex justify-between gap-12 p-3'>
+            <label className='text-[#6b6b6b]'>
+              <input type="checkbox" className='accent-black cursor-pointer'/>
               Lembrar-me
             </label>
             <a href="" className='hover:underline text-yellow-400'>Esqueci minha senha</a>
           </div>
+
+          <div className='flex justify-center'>
+            <button className='bg-yellow-500 rounded-2xl hover:animate-spin h-[45px] w-[250px] justify-center m-3'>ENTRAR</button> 
+          </div> 
+
+          <p className='text-center text-[#6B6B6B] m-3'>OU</p>
+
+          <div className='flex justify-center flex-col'>
+            <button className='rounded-xl m-2 border-[#6B6B6B] bg-black text-white h-[40px]'>Login com o Google</button>
+            <button className='rounded-xl m-2 border-[#6B6B6B] bg-black text-white h-[40px]'>Login com a Apple</button>
+          </div>
+      </div>
+
+ 
 
         </div>
       </div>
