@@ -1,5 +1,7 @@
 import { useState } from 'react'
-
+import Logo_google from './assets/Logo_google.png'
+import Logo_apple from './assets/Logo_apple.webp'
+import { Lock, Mail } from "lucide-react";
 
 
 function App() {
@@ -15,17 +17,17 @@ function App() {
 
       {/*div da parte central(inputs, botoes)*/}
       <div className="flex items-center justify-center bg-black">
-        <div className='bg-[#0f0f0f] rounded-3xl border-gray-950 flex justify-center h-[500px] w-[400px]  hover:animate-spin' >
+        <div className='bg-[#0f0f0f] rounded-3xl border-gray-950 flex justify-center h-[500px] w-[400px]' >
     
           <div className='flex flex-col'>
             <div className='flex flex-col p-3'>
               <label className='text-white'>E-MAIL</label>
-              <input type="email" placeholder='Digite o seu email' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white'/>
-            </div>
+              <input type="email" placeholder='Digite o seu email' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white border border-[6B6B6B]'/>
+          </div>
 
           <div className='flex flex-col p-3'>
             <label className='text-white'>SENHA</label>
-            <input type="password" placeholder='Digite a sua senha' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white'/>
+            <input type="password" placeholder='Digite a sua senha' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white border border-[6B6B6B]'/>
           </div>
 
           <div className='flex justify-between gap-12 p-3'>
@@ -40,11 +42,18 @@ function App() {
             <button className='bg-yellow-500 rounded-2xl hover:animate-spin h-[45px] w-[250px] justify-center m-3'>ENTRAR</button> 
           </div> 
 
-          <p className='text-center text-[#6B6B6B] m-3'>OU</p>
+          <p className='text-center text-[#6B6B6B] m-3'>------------------------OU------------------------</p>
 
-          <div className='flex justify-center flex-col'>
-            <button className='rounded-xl m-2 border-[#6B6B6B] bg-black text-white h-[40px]'>Login com o Google</button>
-            <button className='rounded-xl m-2 border-[#6B6B6B] bg-black text-white h-[40px]'>Login com a Apple</button>
+          <div className='flex justify-center flex-col gap-5'>
+            <button className="flex items-center justify-center gap-3 w-full h-[44px] bg-black text-white rounded-xl border border-[#6B6B6B] hover:bg-neutral-900 transition">
+              <img src={Logo_google} alt="Logo Google" className="w-5 h-5"/>
+              <span className="font-medium">Continuar com o Google</span>
+            </button>
+
+            <button className="flex items-center justify-center gap-3 w-full h-[44px] bg-black text-white rounded-xl border border-[#6B6B6B] hover:bg-neutral-900 transition">
+              <img src={Logo_apple} alt="Logo Apple" className="w-5 h-5"/>
+              <span className="font-medium">Continuar com a Apple</span>
+            </button>
           </div>
       </div>
 
