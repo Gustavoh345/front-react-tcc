@@ -1,10 +1,14 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.tsx'
+import React from 'react'
+import ReactDOM from 'react-dom/client'
+import { RouterProvider, createRouter } from '@tanstack/react-router'
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
+import { routeTree } from './routeTree.gen'
+import './index.css' // <-- ESSENCIAL para o Tailwind funcionar
+
+const router = createRouter({
+  routeTree,
+})
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <RouterProvider router={router} />
 )

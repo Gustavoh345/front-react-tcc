@@ -1,15 +1,16 @@
-import { useState } from 'react'
+//esta é a pagina feita no app.tsx
+import { createFileRoute, Link } from '@tanstack/react-router'
+import React from 'react'
 
-import Logo_google from './assets/Logo_google.png'
-import Logo_apple from './assets/Logo_apple.webp'
-import Logo_omnimarket from './assets/Logo_omnimarket.jpg'
-import Logo_apple2 from './assets/Logo_apple2.jpg'
+import Logo_google from '../assets/Logo_google.png'
+import Logo_omnimarket from '../assets/Logo_omnimarket.jpg'
+import Logo_apple2 from '../assets/Logo_apple2.jpg'
 
-import { Lock, Mail } from "lucide-react";
+export const Route = createFileRoute('/login')({
+  component: Login,
+})
 
-
-function App() {
-
+function Login() {
   return (
     //tela de fundo
     <div className='w-screen h-screen bg-black m-0 '>
@@ -68,5 +69,3 @@ function App() {
     </div>
   )
 }
-
-export default App
