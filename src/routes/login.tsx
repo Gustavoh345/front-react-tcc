@@ -2,9 +2,9 @@
 import { createFileRoute, Link } from '@tanstack/react-router'
 import React from 'react'
 
-import Logo_google from '../assets/Logo_google.png'
 import Logo_omnimarket from '../assets/Logo_omnimarket.jpg'
-import Logo_apple2 from '../assets/Logo_apple2.jpg'
+import Facebook from '../assets/Facebook.webp'
+import Google from '../assets/Logo_google.png'
 
 export const Route = createFileRoute('/login')({
   component: Login,
@@ -15,7 +15,6 @@ function Login() {
     //tela de fundo
     <div className='w-screen h-screen bg-black m-0 '>
       <div className='p-6 flex flex-col justify-center'>
-        <img src={Logo_omnimarket} alt="Logo omnimarket" className='mx-auto border border-yellow-400 h-[150px] w-[150px] hover:animate-spin rounded-3xl'/>
         <h1 className='text-white flex justify-center text-[80px] hover:animate-spin'>OmniMarket</h1>
         <h4 className='text-white flex justify-center text-[20px]'>Compre e venda em um só lugar!</h4>
       </div>
@@ -31,7 +30,7 @@ function Login() {
           </div>
 
           <div className='flex flex-col p-3'>
-            <label className='text-white'>SENHA</label>
+            <label className='text-[#6B6B6B]'>SENHA</label>
             <input type="password" placeholder='Digite a sua senha' className='rounded-2xl p-1 bg-black placeholder-[#6b6b6b] text-white border border-[6B6B6B]'/>
           </div>
 
@@ -51,12 +50,12 @@ function Login() {
 
           <div className='flex justify-center flex-col gap-5'>
             <button className="flex items-center justify-center gap-3 w-full h-[44px] bg-black text-white rounded-xl border border-[#6B6B6B] hover:bg-neutral-900 transition">
-              <img src={Logo_google} alt="Logo Google" className="w-5 h-5"/>
+              <img src={Google} alt="Logo Google" className="w-5 h-5"/>
               <span className="font-medium">Continuar com o Google</span>
             </button>
 
             <button className="flex items-center justify-center gap-3 w-full h-[44px] bg-black text-white rounded-xl border border-[#6B6B6B] hover:bg-neutral-900 transition">
-              <img src={Logo_apple2} alt="Logo Apple" className="w-5 h-5"/>
+              <img src={Facebook} alt="Logo Apple" className="w-8 h-8"/>
               <span className="font-medium">Continuar com a Apple</span>
             </button>
           </div>
