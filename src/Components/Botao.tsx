@@ -6,6 +6,7 @@ interface BotaoProps {
   type?: "button" | "submit";
   variant?: "primary" | "secondary";
   className?: string;
+  icon?: React.ReactNode;
 }
 
 export function Botao({
@@ -13,10 +14,11 @@ export function Botao({
   onClick,
   type = "button",
   variant = "primary",
-  className = ""
+  className = "",
+  icon
 }: BotaoProps) {
 
-  const baseStyle = "w-full h-[45px] rounded-xl font-semibold transition";
+  const baseStyle = "w-full h-[45px] rounded-xl font-semibold transition flex items-center justify-center gap-3";
 
   const variants = {
     primary: "bg-yellow-500 text-black hover:bg-yellow-300",
@@ -29,6 +31,7 @@ export function Botao({
       onClick={onClick}
       className={`${baseStyle} ${variants[variant]} ${className}`}
     >
+      {icon && <span className="w-5 h-5">{icon}</span>}
       {children}
     </button>
   );

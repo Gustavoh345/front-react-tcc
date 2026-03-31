@@ -59,24 +59,28 @@ export function LoginPage() {
         <div className="flex flex-col gap-3">
 
             {/* Tem que arrumar este botao*/}
-            <Botao variant="secondary">
-            <img src={Google2} alt="Google" className="w-5 h-5" />
-            <span>Continuar com o Google</span>
+            <Botao
+              variant="secondary"
+              icon={<img src={Google2} alt="Google" className="w-5 h-5" />}
+            >
+              Continuar com o Google
             </Botao>
-          <button className="flex items-center justify-center gap-3 w-full h-[44px] bg-black text-white rounded-xl border border-[#6B6B6B] hover:bg-neutral-900 transition">
-            <img src={Google2} alt="Google" className="w-5 h-5" />
-            <span>Continuar com o Google</span>
-          </button>
-
-        
-          <button className="flex items-center justify-center gap-3 w-full h-[44px] bg-black text-white rounded-xl border border-[#6B6B6B] hover:bg-neutral-900 transition">
-            <img src={Apple} alt="Apple" className="w-5 h-5" />
-            <span>Continuar com a Apple</span>
-          </button>
-
+          
+            <Botao 
+            variant="secondary" 
+            icon={<img src={Apple} alt="Apple" className="w-5 h-5"/>}
+            >
+              Continuar com Apple
+            </Botao>
         </div>
 
+        {/* possibilidade */}
       </div>
+
+      <div className="flex justify-between gap-2 ">
+        <h2 className="text-[#6b6b6b] text-[18px]">Ainda não possuí conta?</h2>
+        <a href="Cadastro" className="text-yellow-500 hover:underline hover:text-yellow-300 text-[18px]">Criar conta</a>
+        </div>
     </div>
   );
 }
