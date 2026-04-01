@@ -1,12 +1,17 @@
 import { Input } from "./Input";
 import { Botao } from "./Botao"
+import { PageLayout } from "./PageLayout";
 
 import Google2 from '../assets/Icone_google.webp'
 import Apple from '../assets/Icone_apple.png'
 
+
 export function LoginPage() {
   return (
-    <div className="w-screen h-screen bg-black flex flex-col items-center justify-center gap-6">
+  
+  
+  <PageLayout>
+    
 
       {/* TEXTO FORA DO CARD */}
       <div className="text-center">
@@ -24,7 +29,6 @@ export function LoginPage() {
           name="Email"
           id="email"
           placeholder="Digite seu email"
-          className="rounded-xl p-2 bg-black text-white border border-[#6B6B6B] placeholder-[#6b6b6b]"
         />
 
         <Input
@@ -32,7 +36,6 @@ export function LoginPage() {
           id="senha"
           type="password"
           placeholder="Digite sua senha"
-          className="rounded-xl p-2 bg-black text-white border border-[#6B6B6B] placeholder-[#6b6b6b]"
         />
 
         {/* OPÇÕES */}
@@ -74,13 +77,13 @@ export function LoginPage() {
             </Botao>
         </div>
 
-        {/* possibilidade */}
+        {/* possibilidade de criação do botao do facebook*/}
       </div>
 
       <div className="flex justify-between gap-2 ">
         <h2 className="text-[#6b6b6b] text-[18px]">Ainda não possuí conta?</h2>
         <a href="Cadastro" className="text-yellow-500 hover:underline hover:text-yellow-300 text-[18px]">Criar conta</a>
         </div>
-    </div>
+    </PageLayout>
   );
 }

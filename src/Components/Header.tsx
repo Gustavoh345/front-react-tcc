@@ -1,7 +1,7 @@
 //cabeçalho da nossa aplicação
 // Header.tsx
 import { Link, useRouterState } from '@tanstack/react-router'
-import Logo_Omnimarket from "../../assets/Logo_omnimarket.jpg"
+import Logo_Omnimarket from "../assets/Logo_omnimarket.jpg"
 
 export default function Header() {
   const { location } = useRouterState()

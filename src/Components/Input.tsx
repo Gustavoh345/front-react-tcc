@@ -8,9 +8,14 @@ interface InputProps{
     value: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     className?: string;
+    pattern?: string;
 }
 
 export function Input(props: InputProps){
+
+    const baseStyle =
+    "rounded-xl p-2 bg-black text-white border border-[#6B6B6B] placeholder-[#6b6b6b]";
+
     return(
         <div className="flex flex-col">
             
@@ -23,9 +28,10 @@ export function Input(props: InputProps){
                 placeholder= {props.placeholder || ""}
                 value={props.value}
                 onChange={props.onChange}    
-                className={props.className || ""}       
+                className={`${baseStyle} ${props.className || ""}`}      
             />
 
         </div>
     )
+
 }
