@@ -1,11 +1,10 @@
 import { createFileRoute } from '@tanstack/react-router'
-import React from 'react';
-import { CadastroPage } from '../Components/CadastroPage';
+import { CadastroPage } from '../pages/CadastroPage'
 
 export const Route = createFileRoute('/cadastro')({
   component: RouteComponent,
 })
 
 function RouteComponent() {
-  return <CadastroPage/>
+  return <CadastroPage />
 }

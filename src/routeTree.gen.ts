@@ -11,7 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as PerfilUsuarioRouteImport } from './routes/perfilUsuario'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as HomeRouteImport } from './routes/home'
+import { Route as HomeRouteImport } from './routes'
 import { Route as CadastroRouteImport } from './routes/cadastro'
 
 const PerfilUsuarioRoute = PerfilUsuarioRouteImport.update({
@@ -25,8 +25,8 @@ const LoginRoute = LoginRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const HomeRoute = HomeRouteImport.update({
-  id: '/home',
-  path: '/home',
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CadastroRoute = CadastroRouteImport.update({
