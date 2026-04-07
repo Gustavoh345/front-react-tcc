@@ -1,8 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Botao } from "../components/Botao";
-import { Input } from "../components/Input";
-import { PageLayout } from "../components/PageLayout";
+import { Botao } from "../Components/Botao";
+import { Input } from "../Components/Input";
+import { PageLayout } from "../Components/PageLayout";
 
 import Apple from "../assets/Icone_apple.png";
 import Google2 from "../assets/Icone_google.webp";

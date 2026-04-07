@@ -1,5 +1,5 @@
 import { Outlet, createRootRoute } from '@tanstack/react-router'
-import Header from '../components/Header'
+import AppHeader from '../Components/AppHeader'
 
 export const Route = createRootRoute({
   component: RootComponent,
@@ -7,8 +7,8 @@ export const Route = createRootRoute({
 
 function RootComponent() {
   return (
-    <>
-      <Header />
+      <>
+      <AppHeader />
       <Outlet />
     </>
   )
