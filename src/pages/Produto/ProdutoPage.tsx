@@ -1,5 +1,5 @@
 import { PageLayout } from "../../Components/PageLayout";
-
+//necessidade de arrumar esta pagina para utilizar o carrinho de forma concreta
 export function ProdutoPage() {
   return (
     <PageLayout>
