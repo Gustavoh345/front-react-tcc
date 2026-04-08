@@ -5,7 +5,7 @@ import LogoOmnimarket from "../assets/Logo_omnimarket.jpg";
 // Lista centralizada de links do cabecalho para facilitar manutencao futura.
 const navItems = [
   {
-    to: "/home",
+    to: "/",
     label: "Home",
     icon: House,
   },
