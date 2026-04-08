@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronRight, House, LogIn, UserRound } from "lucide-react";
+import { CarIcon, ChevronRight, House, LogIn, ShoppingBagIcon, ShoppingCart, UserRound } from "lucide-react";
 import LogoOmnimarket from "../assets/Logo_omnimarket.jpg";
 
 // Lista centralizada de links do cabecalho para facilitar manutencao futura.
@@ -19,6 +19,11 @@ const navItems = [
     label: "Perfil",
     icon: UserRound,
   },
+  {
+    to: "/carrinho",
+    label: "Carrinho",
+    icon: ShoppingCart,
+  }
 ] as const;
 
 export default function AppHeader() {
@@ -32,7 +37,7 @@ export default function AppHeader() {
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           {/* Bloco da marca com logo e texto institucional. */}
           <Link
-            to="/home"
+            to="/"
             className="flex items-center gap-4 rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,_rgba(255,255,255,0.05),_rgba(255,255,255,0.02))] px-4 py-3 transition hover:border-yellow-400/30 hover:bg-white/10"
           >
             <img

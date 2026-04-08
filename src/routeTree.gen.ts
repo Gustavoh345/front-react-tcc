@@ -13,6 +13,7 @@ import { Route as PerfilUsuarioRouteImport } from './routes/perfilUsuario'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as HomeRouteImport } from './routes'
 import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as CarrinhoRouteImport} from './routes/carrinho'
 
 const PerfilUsuarioRoute = PerfilUsuarioRouteImport.update({
   id: '/perfilUsuario',
@@ -34,18 +35,25 @@ const CadastroRoute = CadastroRouteImport.update({
   path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/cadastro': typeof CadastroRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
+  '/carrinho' : typeof CarrinhoRoute
 }
 export interface FileRoutesByTo {
   '/cadastro': typeof CadastroRoute
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
+  '/carrinho' : typeof CadastroRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +61,14 @@ export interface FileRoutesById {
   '/home': typeof HomeRoute
   '/login': typeof LoginRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
+  '/carrinho': typeof CarrinhoRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/cadastro' | '/home' | '/login' | '/perfilUsuario'
+  fullPaths: '/cadastro' | '/home' | '/login' | '/perfilUsuario' | '/carrinho'
   fileRoutesByTo: FileRoutesByTo
-  to: '/cadastro' | '/home' | '/login' | '/perfilUsuario'
-  id: '__root__' | '/cadastro' | '/home' | '/login' | '/perfilUsuario'
+  to: '/cadastro' | '/home' | '/login' | '/perfilUsuario' | '/carrinho'
+  id: '__root__' | '/cadastro' | '/home' | '/login' | '/perfilUsuario' | '/carrinho'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +76,7 @@ export interface RootRouteChildren {
   HomeRoute: typeof HomeRoute
   LoginRoute: typeof LoginRoute
   PerfilUsuarioRoute: typeof PerfilUsuarioRoute
+  CarrinhoRoute: typeof CarrinhoRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +109,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/carrinho': {
+      id: '/carrinho',
+      path: '/carrinho',
+      fullpath: '/carrinho',
+      preLoaderRoute: typeof CarrinhoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +124,7 @@ const rootRouteChildren: RootRouteChildren = {
   HomeRoute: HomeRoute,
   LoginRoute: LoginRoute,
   PerfilUsuarioRoute: PerfilUsuarioRoute,
+  CarrinhoRoute: CarrinhoRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
