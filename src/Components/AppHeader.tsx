@@ -1,5 +1,5 @@
 import { Link, useRouterState } from "@tanstack/react-router";
-import { CarIcon, ChevronRight, House, LogIn, ShoppingBagIcon, ShoppingCart, UserRound } from "lucide-react";
+import { ChevronRight, House, LogIn, ShoppingCart, UserRound } from "lucide-react";
 import LogoOmnimarket from "../assets/Logo_omnimarket.jpg";
 
 // Lista centralizada de links do cabecalho para facilitar manutencao futura.
