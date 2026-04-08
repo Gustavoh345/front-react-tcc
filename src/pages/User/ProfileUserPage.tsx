@@ -1,12 +1,12 @@
-import { PageLayout } from "../Components/PageLayout";
-import { ProductGrid } from "../Components/perfil/ProductGrid";
-import { ProfileFeedback } from "../Components/perfil/ProfileFeedback";
-import { ProfileSection } from "../Components/perfil/ProfileSection";
-import { ProfileSkeleton } from "../Components/perfil/ProfileSkeleton";
-import { UserCard } from "../Components/perfil/UserCard";
-import { UserStats } from "../Components/perfil/UserStats";
-import { UserTabs } from "../Components/perfil/UserTabs";
-import { usePerfilUsuarioData } from "../hooks/usePerfilUsuarioData";
+import { PageLayout } from "../../Components/PageLayout";
+import { ProductGrid } from "../../Components/perfil/ProductGrid";
+import { ProfileFeedback } from "../../Components/perfil/ProfileFeedback";
+import { ProfileSection } from "../../Components/perfil/ProfileSection";
+import { ProfileSkeleton } from "../../Components/perfil/ProfileSkeleton";
+import { UserCard } from "../../Components/perfil/UserCard";
+import { UserStats } from "../../Components/perfil/UserStats";
+import { UserTabs } from "../../Components/perfil/UserTabs";
+import { usePerfilUsuarioData } from "../../hooks/usePerfilUsuarioData";
 
 export function PerfilUsuarioPage() {
   // Consome toda a logica do perfil em um hook separado da interface.

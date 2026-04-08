@@ -1,14 +1,14 @@
 import { Link } from "@tanstack/react-router";
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { Botao } from "../Components/Botao";
-import { Input } from "../Components/Input";
-import { PageLayout } from "../Components/PageLayout";
+import { Botao } from "../../Components/Botao";
+import { Input } from "../../Components/Input";
+import { PageLayout } from "../../Components/PageLayout";
 
-import Apple from "../assets/Icone_apple.png";
-import Google2 from "../assets/Icone_google.webp";
+import Apple from "../../assets/Icone_apple.png";
+import Google2 from "../../assets/Icone_google.webp";
 
-import type { LoginErrors, LoginFormData } from "../types/LoginFormData";
-import { validarLogin } from "../utils/validators";
+import type { LoginErrors, LoginFormData } from "../../types/LoginFormData";
+import { validarLogin } from "../../utils/validators";
 
 const initialFormData: LoginFormData = {
   email: "",

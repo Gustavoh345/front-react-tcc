@@ -1,10 +1,10 @@
 import { useState, type ChangeEvent, type FormEvent, type InputHTMLAttributes } from "react";
 import { Link } from "@tanstack/react-router";
-import { Botao } from "../Components/Botao";
-import { PageLayout } from "../Components/PageLayout";
+import { Botao } from "../../Components/Botao";
+import { PageLayout } from "../../Components/PageLayout";
 
-import type { CadastroFormData, FormErrors } from "../types/cadastroFormData";
-import { validarFormulario } from "../utils/validators";
+import type { CadastroFormData, FormErrors } from "../../types/cadastroFormData";
+import { validarFormulario } from "../../utils/validators";
 
 
 

@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
 import { ArrowDownWideNarrow } from "lucide-react";
-import { Banner } from "../Components/home/Banner";
-import { CategoryList } from "../Components/home/CategoryList";
-import { ProductGrid } from "../Components/home/ProductGrid";
-import { SearchBar } from "../Components/home/SearchBar";
-import { PageLayout } from "../Components/PageLayout";
-import type { HomeCategory, HomeProduct } from "../types/home";
+import { Banner } from "../../Components/home/Banner";
+import { CategoryList } from "../../Components/home/CategoryList";
+import { ProductGrid } from "../../Components/home/ProductGrid";
+import { SearchBar } from "../../Components/home/SearchBar";
+import { PageLayout } from "../../Components/PageLayout";
+import type { HomeCategory, HomeProduct } from "../../types/home";
 
 // Cria uma imagem SVG em formato data URI para manter o mock independente de backend e de URLs externas.
 function createMockImage(label: string, colorA: string, colorB: string) {
