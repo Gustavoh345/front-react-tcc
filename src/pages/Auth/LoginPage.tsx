@@ -133,12 +133,11 @@ export function LoginPage() {
                   Lembrar-me
                 </label>
 
-                <button
-                  type="button"
-                  className="text-yellow-400 transition hover:text-yellow-300 hover:underline"
-                >
+                <Link
+                  to={"/recuperarSenha"}
+                  className="text-yellow-400 transition hover:text-yellow-300 hover:underline">
                   Esqueci minha senha
-                </button>
+                </Link>
               </div>
 
               <Botao

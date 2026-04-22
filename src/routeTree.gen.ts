@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as RecuperarSenhaRouteImport } from './routes/recuperarSenha'
 import { Route as PerfilUsuarioRouteImport } from './routes/perfilUsuario'
 import { Route as LoginRouteImport } from './routes/login'
-import { Route as HomeRouteImport } from './routes'
+import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CadastroRouteImport } from './routes/cadastro'
-import { Route as CarrinhoRouteImport} from './routes/carrinho'
+import { Route as IndexRouteImport } from './routes/index'
 
+const RecuperarSenhaRoute = RecuperarSenhaRouteImport.update({
+  id: '/recuperarSenha',
+  path: '/recuperarSenha',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PerfilUsuarioRoute = PerfilUsuarioRouteImport.update({
   id: '/perfilUsuario',
   path: '/perfilUsuario',
@@ -25,9 +31,9 @@ const LoginRoute = LoginRouteImport.update({
   path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
-const HomeRoute = HomeRouteImport.update({
-  id: '/',
-  path: '/',
+const CarrinhoRoute = CarrinhoRouteImport.update({
+  id: '/carrinho',
+  path: '/carrinho',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CadastroRoute = CadastroRouteImport.update({
@@ -35,52 +41,82 @@ const CadastroRoute = CadastroRouteImport.update({
   path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
-const CarrinhoRoute = CarrinhoRouteImport.update({
-  id: '/carrinho',
-  path: '/carrinho',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
+  '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
-  '/home': typeof HomeRoute
+  '/carrinho': typeof CarrinhoRoute
   '/login': typeof LoginRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
-  '/carrinho' : typeof CarrinhoRoute
+  '/recuperarSenha': typeof RecuperarSenhaRoute
 }
 export interface FileRoutesByTo {
+  '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
-  '/home': typeof HomeRoute
+  '/carrinho': typeof CarrinhoRoute
   '/login': typeof LoginRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
-  '/carrinho' : typeof CadastroRoute
+  '/recuperarSenha': typeof RecuperarSenhaRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
+  '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
-  '/home': typeof HomeRoute
+  '/carrinho': typeof CarrinhoRoute
   '/login': typeof LoginRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
-  '/carrinho': typeof CarrinhoRoute
+  '/recuperarSenha': typeof RecuperarSenhaRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/cadastro' | '/home' | '/login' | '/perfilUsuario' | '/carrinho'
+  fullPaths:
+    | '/'
+    | '/cadastro'
+    | '/carrinho'
+    | '/login'
+    | '/perfilUsuario'
+    | '/recuperarSenha'
   fileRoutesByTo: FileRoutesByTo
-  to: '/cadastro' | '/home' | '/login' | '/perfilUsuario' | '/carrinho'
-  id: '__root__' | '/cadastro' | '/home' | '/login' | '/perfilUsuario' | '/carrinho'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/carrinho'
+    | '/login'
+    | '/perfilUsuario'
+    | '/recuperarSenha'
+  id:
+    | '__root__'
+    | '/'
+    | '/cadastro'
+    | '/carrinho'
+    | '/login'
+    | '/perfilUsuario'
+    | '/recuperarSenha'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
+  IndexRoute: typeof IndexRoute
   CadastroRoute: typeof CadastroRoute
-  HomeRoute: typeof HomeRoute
+  CarrinhoRoute: typeof CarrinhoRoute
   LoginRoute: typeof LoginRoute
   PerfilUsuarioRoute: typeof PerfilUsuarioRoute
-  CarrinhoRoute: typeof CarrinhoRoute
+  RecuperarSenhaRoute: typeof RecuperarSenhaRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/recuperarSenha': {
+      id: '/recuperarSenha'
+      path: '/recuperarSenha'
+      fullPath: '/recuperarSenha'
+      preLoaderRoute: typeof RecuperarSenhaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/perfilUsuario': {
       id: '/perfilUsuario'
       path: '/perfilUsuario'
@@ -95,11 +131,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/home': {
-      id: '/home'
-      path: '/home'
-      fullPath: '/home'
-      preLoaderRoute: typeof HomeRouteImport
+    '/carrinho': {
+      id: '/carrinho'
+      path: '/carrinho'
+      fullPath: '/carrinho'
+      preLoaderRoute: typeof CarrinhoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/cadastro': {
@@ -109,22 +145,23 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/carrinho': {
-      id: '/carrinho',
-      path: '/carrinho',
-      fullpath: '/carrinho',
-      preLoaderRoute: typeof CarrinhoRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
+  IndexRoute: IndexRoute,
   CadastroRoute: CadastroRoute,
-  HomeRoute: HomeRoute,
+  CarrinhoRoute: CarrinhoRoute,
   LoginRoute: LoginRoute,
   PerfilUsuarioRoute: PerfilUsuarioRoute,
-  CarrinhoRoute: CarrinhoRoute,
+  RecuperarSenhaRoute: RecuperarSenhaRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
