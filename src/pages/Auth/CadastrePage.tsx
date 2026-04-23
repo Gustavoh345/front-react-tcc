@@ -11,6 +11,7 @@ import { validarFormulario } from "../../utils/validators";
 type CampoCadastroProps = {
   label: string;
   error?: string;
+  icon?: React.ReactNode,
 } & InputHTMLAttributes<HTMLInputElement>;
 
 const initialFormData: CadastroFormData = {
@@ -21,9 +22,10 @@ const initialFormData: CadastroFormData = {
   cpf: "",
   telefone: "",
   dataNascimento: "",
+  icon: "",
 };
 
-function CampoCadastro({ label, error, className = "", ...props }: CampoCadastroProps) {
+function CampoCadastro({ label, error, className, icon = "", ...props }: CampoCadastroProps) {
 
   const baseStyle =
     "w-full rounded-2xl border bg-[#111111] px-4 py-3 text-white outline-none transition placeholder:text-neutral-500 focus:ring-2";

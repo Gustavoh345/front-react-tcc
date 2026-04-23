@@ -7,6 +7,8 @@ import { SearchBar } from "../../Components/home/SearchBar";
 import { PageLayout } from "../../Components/PageLayout";
 import type { HomeCategory, HomeProduct } from "../../types/home";
 
+import { Spotlight } from "../../Components/home/SpotLight";
+
 // Cria uma imagem SVG em formato data URI para manter o mock independente de backend e de URLs externas.
 function createMockImage(label: string, colorA: string, colorB: string) {
   const svg = `
@@ -175,34 +177,41 @@ export function HomePage() {
       <div className="min-h-screen bg-black px-4 py-6 text-white sm:px-6 lg:px-8">
         <div className="mx-auto flex w-full max-w-7xl flex-col gap-8">
           {/* Cabecalho da Home com titulo contextual e barra de busca. */}
-          <section className="rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(250,204,21,0.16),_transparent_48%),linear-gradient(180deg,_rgba(255,255,255,0.04),_rgba(255,255,255,0.01))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:p-8">
-            <div className="flex flex-col gap-6">
-              <div className="space-y-3">
-                <span className="inline-flex w-fit rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-1 text-sm font-medium text-yellow-300">
-                  Marketplace visual
-                </span>
-                <div className="space-y-2">
-                  <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
-                    Descubra ofertas com uma experiencia pronta para evoluir
-                  </h1>
-                  <p className="max-w-3xl text-sm leading-6 text-neutral-400 sm:text-base">
-                    Esta Home simula uma vitrine de marketplace com banner, categorias,
-                    cards de produto, loading, estado vazio e estrutura preparada para
-                    receber dados reais da API futuramente.
-                  </p>
+          <Spotlight>
+            <section className="relative overflow-hidden rounded-[32px] border border-white/10 bg-[radial-gradient(circle_at_top,_rgba(250,204,21,0.16),_transparent_48%),linear-gradient(180deg,_rgba(255,255,255,0.04),_rgba(255,255,255,0.01))] p-6 shadow-[0_24px_80px_rgba(0,0,0,0.45)] sm:p-8">
+              <div className="flex flex-col gap-6">
+                <div className="space-y-3">
+                  <span className="inline-flex w-fit rounded-full border border-yellow-400/30 bg-yellow-400/10 px-4 py-1 text-sm font-medium text-yellow-300">
+                    Marketplace visual
+                  </span>
+                  <div className="space-y-2">
+                    <h1 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">
+                      Descubra ofertas com uma experiencia pronta para evoluir
+                    </h1>
+                    <p className="max-w-3xl text-sm leading-6 text-neutral-400 sm:text-base">
+                      Esta Home simula uma vitrine de marketplace com banner, categorias,
+                      cards de produto, loading, estado vazio e estrutura preparada para
+                      receber dados reais da API futuramente.
+                    </p>
+                  </div>
                 </div>
-              </div>
+                
 
-              <SearchBar value={searchTerm} onChange={setSearchTerm} />
-            </div>
-          </section>
+                <SearchBar value={searchTerm} onChange={setSearchTerm} />
+              </div>
+            </section>
+          </Spotlight>
 
           {/* Banner principal usado como area de destaque promocional. */}
+          <Spotlight>
+            <div className="relative overflow-hidden">
           <Banner
             titulo="Semana OmniMarket com descontos em tecnologia, moda e casa"
             descricao="Use esta secao para destacar campanhas sazonais, vitrines patrocinadas ou produtos lideres de conversao quando a API estiver conectada."
             imagem={createMockImage("Semana OmniMarket", "#eab308", "#111827")}
           />
+          </div>
+          </Spotlight>
 
           {/* Lista horizontal de categorias com scroll no mobile. */}
           <CategoryList

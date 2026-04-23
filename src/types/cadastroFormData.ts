@@ -1,3 +1,5 @@
+import type React from "react";
+
 export type CadastroFormData = {
   nomeCompleto: string;
   email: string;
@@ -6,6 +8,7 @@ export type CadastroFormData = {
   cpf: string;
   telefone: string;
   dataNascimento: string;
+  icon: React.ReactNode;
 };
 
 export type FormErrors = Partial<Record<keyof CadastroFormData, string>>;
