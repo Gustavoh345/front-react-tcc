@@ -1,5 +1,6 @@
 import { Star } from "lucide-react";
 import type { HomeProduct } from "../../types/home";
+import { Link } from "@tanstack/react-router";
 
 // Define a estrutura esperada para um card individual de produto.
 type ProductCardProps = {
@@ -9,6 +10,12 @@ type ProductCardProps = {
 // Renderiza um card de produto com foco em imagem, preco e avaliacao.
 export function ProductCard({ produto }: ProductCardProps) {
   return (
+    /*este Link serve para redirecionar o user por uma rota dinamica para uma tela especifica do produto clicado com base no id do produto. Depois envia esse id para o ProdutoPage*/
+    <Link
+      to="/produto/$id"
+      params={{ id: produto.id }}
+    >
+
     <article className="group overflow-hidden rounded-[28px] border border-white/10 bg-[linear-gradient(180deg,_rgba(255,255,255,0.05),_rgba(255,255,255,0.02))] shadow-[0_18px_50px_rgba(0,0,0,0.35)] transition hover:-translate-y-1 hover:border-yellow-400/30">
       {/* Area principal da imagem com selo opcional de destaque. */}
       <div className="relative aspect-[4/3] overflow-hidden bg-neutral-950">
@@ -46,5 +53,6 @@ export function ProductCard({ produto }: ProductCardProps) {
         </p>
       </div>
     </article>
+    </Link>
   );
 }
