@@ -4,6 +4,8 @@ import { Botao } from "../../Components/Botao";
 import { Input } from "../../Components/Input";
 import { PageLayout } from "../../Components/PageLayout";
 
+import { LockIcon, User } from "lucide-react";
+
 import Apple from "../../assets/Icone_apple.png";
 import Google2 from "../../assets/Icone_google.webp";
 
@@ -114,6 +116,7 @@ export function LoginPage() {
                 value={formData.email}
                 onChange={handleInputChange}
                 error={errors.email}
+                icon={<User className="w-5 h-5"/>}
               />
 
               <Input
@@ -125,6 +128,7 @@ export function LoginPage() {
                 value={formData.senha}
                 onChange={handleInputChange}
                 error={errors.senha}
+                icon={<LockIcon className="h-5 w-5"/>}
               />
 
               <div className="flex items-center justify-between gap-4 text-sm">

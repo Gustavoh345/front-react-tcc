@@ -1,7 +1,9 @@
-import { useState, type ChangeEvent, type FormEvent, type InputHTMLAttributes } from "react";
+import React, { useState, type ChangeEvent, type FormEvent, type InputHTMLAttributes } from "react";
 import { Link } from "@tanstack/react-router";
 import { Botao } from "../../Components/Botao";
 import { PageLayout } from "../../Components/PageLayout";
+
+import { LockIcon, Phone, User, IdCard, Mail } from "lucide-react";
 
 import type { CadastroFormData, FormErrors } from "../../types/cadastroFormData";
 import { validarFormulario } from "../../utils/validators";
@@ -25,7 +27,7 @@ const initialFormData: CadastroFormData = {
   icon: "",
 };
 
-function CampoCadastro({ label, error, className, icon = "", ...props }: CampoCadastroProps) {
+function CampoCadastro({ label, error, className, icon, ...props }: CampoCadastroProps) {
 
   const baseStyle =
     "w-full rounded-2xl border bg-[#111111] px-4 py-3 text-white outline-none transition placeholder:text-neutral-500 focus:ring-2";
@@ -38,11 +40,23 @@ function CampoCadastro({ label, error, className, icon = "", ...props }: CampoCa
       <label htmlFor={props.id} className="text-sm font-medium text-neutral-200">
         {label}
       </label>
-      <input
-        {...props}
-        className={`${baseStyle} ${stateStyle} ${className}`.trim()}
-      />
-      {error ? <span className="text-sm text-red-400">{error}</span> : null}
+
+      <div className="relative">
+        {icon && (
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-neutral-400">
+            {icon}
+          </span>
+        )}
+
+        <input
+          {...props}
+          className={`${baseStyle} ${stateStyle} pl-10 ${className}`.trim()}
+        />
+      </div>
+
+      {error && (
+        <span className="text-sm text-red-400">{error}</span>
+      )}
     </div>
   );
 }
@@ -153,6 +167,7 @@ export function CadastroPage() {
                     onChange={handleInputChange}
                     placeholder="Digite seu nome completo"
                     error={errors.nomeCompleto}
+                    icon={<User className="w-5 h-5"/>}
                   />
                 </div>
 
@@ -165,6 +180,7 @@ export function CadastroPage() {
                   onChange={handleInputChange}
                   placeholder="voce@exemplo.com"
                   error={errors.email}
+                  icon={<Mail className="w-5 h-5"/>}
                 />
 
                 <CampoCadastro
@@ -176,6 +192,7 @@ export function CadastroPage() {
                   onChange={handleInputChange}
                   placeholder="(11) 99999-9999"
                   error={errors.telefone}
+                  icon={<Phone className="h-5 w-5"/>}
                 />
 
                 <CampoCadastro
@@ -186,6 +203,7 @@ export function CadastroPage() {
                   onChange={handleInputChange}
                   placeholder="000.000.000-00"
                   error={errors.cpf}
+                  icon={<IdCard className="h-5 w-5"/>}
                 />
 
                 <CampoCadastro
@@ -207,6 +225,7 @@ export function CadastroPage() {
                   onChange={handleInputChange}
                   placeholder="Minimo de 6 caracteres"
                   error={errors.senha}
+                  icon={<LockIcon className="h-5 w-5"/>}
                 />
 
                 <CampoCadastro
@@ -218,6 +237,7 @@ export function CadastroPage() {
                   onChange={handleInputChange}
                   placeholder="Repita sua senha"
                   error={errors.confirmarSenha}
+                  icon={<LockIcon className="h-5 w-5"/>}
                 />
               </div>
 

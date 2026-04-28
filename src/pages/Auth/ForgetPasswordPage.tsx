@@ -3,6 +3,8 @@ import { Botao } from "../../Components/Botao";
 import { Input } from "../../Components/Input";
 import { PageLayout } from "../../Components/PageLayout";
 
+import { RefreshCw, KeyRound  } from "lucide-react";
+
 export function ForgetPasswordPage() {
   const [formData, setFormData] = useState({
     senha: "",
@@ -124,6 +126,7 @@ export function ForgetPasswordPage() {
                 value={formData.senha}
                 onChange={handleInputChange}
                 error={errors.senha}
+                icon={<KeyRound  className="h-5 w-5"/>}
               />
 
               <Input
@@ -135,6 +138,7 @@ export function ForgetPasswordPage() {
                 value={formData.confirmarSenha}
                 onChange={handleInputChange}
                 error={errors.confirmarSenha}
+                icon={<RefreshCw  className="h-5 w-5"/>}
               />
 
               <Botao
