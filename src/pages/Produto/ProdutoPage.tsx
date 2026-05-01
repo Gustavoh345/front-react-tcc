@@ -3,6 +3,13 @@ import { ShoppingCart } from "lucide-react";
 import { Botao } from "../../Components/Botao";
 import { PageLayout } from "../../Components/PageLayout";
 import { produtosMock } from "../../data/produtos";
+import { useNavigate } from "@tanstack/react-router";
+
+//import para tornar a parte de quando add um produto ao carrinho
+//apareça a mensagem "produto adicionado ao carrinho" de forma mais profissional
+import toast from "react-hot-toast";
+
+
 
 // Esta pagina exibe os detalhes de um produto especifico.
 // A rota recebe um "id" dinamico e, com base nele, procuramos o produto correspondente no mock.
@@ -14,6 +21,10 @@ export function ProdutoPage() {
   // Procuramos no array mockado o produto cujo id seja igual ao id vindo da rota.
   // Hoje os dados sao locais, mas essa mesma ideia sera mantida quando a API existir.
   const produto = produtosMock.find((p) => p.id === id);
+
+  //Propriedade do tanstack para levar a pagina de sucesso e simular uma compra feita para 
+  //podermos visualizar o desenvolvimento da pagina de sucesso
+  const navigate = useNavigate();
 
   // TODO: integrar com API futuramente para buscar dados reais do produto
 
@@ -151,7 +162,18 @@ export function ProdutoPage() {
                     {/* Este wrapper controla o espaco do primeiro botao.
                         "flex-1" faz os botoes dividirem o espaco disponivel de forma equilibrada. */}
                     <div className="flex-1">
-                      <Botao className="h-14 w-full text-base font-semibold sm:text-lg">
+                      <Botao className="h-14 w-full text-base font-semibold sm:text-lg" 
+                        onClick=
+                        {() => navigate
+                          ({
+                            to: "/PaginaSucesso",
+                            state: {
+                              produto: produto.nome,
+                              preco: produto.preco,
+                              id: produto.id,
+                            },
+                          })
+                        }>
                         Comprar
                       </Botao>
                     </div>
@@ -162,12 +184,15 @@ export function ProdutoPage() {
                         icon={<ShoppingCart className="h-5 w-5" />}
                         variant="secondary"
                         className="h-14 w-full text-base font-semibold sm:text-lg"
+                        
                       >
                         Adicionar ao carrinho
                       </Botao>
+                      
                     </div>
                   </div>
                 </div>
+                
 
                 {/* Este bloco inferior funciona como descricao temporaria da pagina.
                     Ele cria uma segunda camada de informacao, com menos peso visual que titulo e preco. */}
