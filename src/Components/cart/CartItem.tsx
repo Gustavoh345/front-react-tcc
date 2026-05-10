@@ -3,9 +3,9 @@ import type { CartItem as CartItemType } from "../../store/useCartStore";
 
 type CartItemProps = {
   item: CartItemType;
-  onIncrease: (id: number) => void;
-  onDecrease: (id: number) => void;
-  onRemove: (id: number) => void;
+  onIncrease: (id: string) => void;
+  onDecrease: (id: string) => void;
+  onRemove: (id: string) => void;
 };
 
 const currencyFormatter = new Intl.NumberFormat("pt-BR", {

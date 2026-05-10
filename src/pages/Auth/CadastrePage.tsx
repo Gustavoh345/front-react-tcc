@@ -3,7 +3,7 @@ import { Link } from "@tanstack/react-router";
 import { Botao } from "../../Components/Botao";
 import { PageLayout } from "../../Components/PageLayout";
 
-import { LockIcon, Phone, User, IdCard, Mail } from "lucide-react";
+import { LockIcon, Phone, User, IdCard, Mail, CalendarDays } from "lucide-react";
 
 import type { CadastroFormData, FormErrors } from "../../types/cadastroFormData";
 import { validarFormulario } from "../../utils/validators";
@@ -214,6 +214,7 @@ export function CadastroPage() {
                   value={formData.dataNascimento}
                   onChange={handleInputChange}
                   error={errors.dataNascimento}
+                  icon={<CalendarDays className="h-5 w-5"/>}
                 />
 
                 <CampoCadastro

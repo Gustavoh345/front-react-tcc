@@ -6,14 +6,23 @@ import { CartSummary } from "../../Components/cart/CartSummary";
 import { PageLayout } from "../../Components/PageLayout";
 import { useCartStore } from "../../store/useCartStore";
 import { Spotlight } from "../../Components/home/SpotLight";
+import { useCart } from "../../context/CartContext";
+import { useState } from "react";
+import type { CartItemType } from "../../context/CartContext";
+
+import { Link } from "@tanstack/react-router";
 
 export function CarrinhoPage() {
   const navigate = useNavigate();
-  const items = useCartStore((state) => state.items);
-  const removeItem = useCartStore((state) => state.removeItem);
-  const increaseQuantity = useCartStore((state) => state.increaseQuantity);
-  const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
-  const total = useCartStore((state) => state.getTotal());
+  //const items = useCartStore((state) => state.items);
+  //const removeItem = useCartStore((state) => state.removeItem);
+  //const increaseQuantity = useCartStore((state) => state.increaseQuantity);
+  //const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
+  //const total = useCartStore((state) => state.getTotal());
+
+  const { carrinhoItens, increaseQuantity, decreaseQuantity, removeItem } = useCart();
+  const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+  
 
   const handleGoToStore = () => {
     navigate({ to: "/" });
@@ -40,7 +49,7 @@ export function CarrinhoPage() {
             </section>
           </Spotlight>
 
-          {items.length === 0 ? (
+          {carrinhoItens.length === 0 ? (
             <section className="flex min-h-[420px] flex-col items-center justify-center gap-6 rounded-[32px] border border-dashed border-white/10 bg-[linear-gradient(180deg,_rgba(255,255,255,0.04),_rgba(255,255,255,0.02))] px-6 py-12 text-center shadow-[0_24px_80px_rgba(0,0,0,0.35)]">
               <div className="flex h-20 w-20 items-center justify-center rounded-full border border-yellow-400/20 bg-yellow-400/10 text-yellow-300">
                 <ShoppingBag className="h-9 w-9" />
@@ -48,7 +57,7 @@ export function CarrinhoPage() {
 
               <div className="space-y-2">
                 <h2 className="text-2xl font-semibold text-white">
-                  Seu carrinho esta vazio
+                  Seu carrinho está vazio.
                 </h2>
                 <p className="max-w-md text-sm leading-6 text-neutral-400">
                   Explore a loja e adicione produtos para montar seu pedido.
@@ -67,7 +76,7 @@ export function CarrinhoPage() {
           ) : (
             <>
               <section className="space-y-4">
-                {items.map((item) => (
+                {carrinhoItens.map((item) => (
                   <CartItem
                     key={item.id}
                     item={item}
@@ -80,7 +89,8 @@ export function CarrinhoPage() {
 
               <CartSummary subtotal={total} />
 
-              <Botao className="h-14 rounded-2xl bg-yellow-400 text-black shadow-[0_0_36px_rgba(250,204,21,0.18)] hover:bg-yellow-300">
+              <Botao
+              className="h-14 rounded-2xl bg-yellow-400 text-black shadow-[0_0_36px_rgba(250,204,21,0.18)] hover:bg-yellow-300">
                 Finalizar compra
               </Botao>
             </>

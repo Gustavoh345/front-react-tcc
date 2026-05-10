@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as RecuperarSenhaRouteImport } from './routes/recuperarSenha'
 import { Route as PerfilUsuarioRouteImport } from './routes/perfilUsuario'
 import { Route as PaginaSucessoRouteImport } from './routes/paginaSucesso'
+import { Route as PaginaPagamentoRouteImport } from './routes/paginaPagamento'
 import { Route as LoginRouteImport } from './routes/login'
 import { Route as CarrinhoRouteImport } from './routes/carrinho'
 import { Route as CadastroRouteImport } from './routes/cadastro'
@@ -31,6 +32,11 @@ const PerfilUsuarioRoute = PerfilUsuarioRouteImport.update({
 const PaginaSucessoRoute = PaginaSucessoRouteImport.update({
   id: '/paginaSucesso',
   path: '/paginaSucesso',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PaginaPagamentoRoute = PaginaPagamentoRouteImport.update({
+  id: '/paginaPagamento',
+  path: '/paginaPagamento',
   getParentRoute: () => rootRouteImport,
 } as any)
 const LoginRoute = LoginRouteImport.update({
@@ -64,6 +70,7 @@ export interface FileRoutesByFullPath {
   '/cadastro': typeof CadastroRoute
   '/carrinho': typeof CarrinhoRoute
   '/login': typeof LoginRoute
+  '/paginaPagamento': typeof PaginaPagamentoRoute
   '/paginaSucesso': typeof PaginaSucessoRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
   '/recuperarSenha': typeof RecuperarSenhaRoute
@@ -74,6 +81,7 @@ export interface FileRoutesByTo {
   '/cadastro': typeof CadastroRoute
   '/carrinho': typeof CarrinhoRoute
   '/login': typeof LoginRoute
+  '/paginaPagamento': typeof PaginaPagamentoRoute
   '/paginaSucesso': typeof PaginaSucessoRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
   '/recuperarSenha': typeof RecuperarSenhaRoute
@@ -85,6 +93,7 @@ export interface FileRoutesById {
   '/cadastro': typeof CadastroRoute
   '/carrinho': typeof CarrinhoRoute
   '/login': typeof LoginRoute
+  '/paginaPagamento': typeof PaginaPagamentoRoute
   '/paginaSucesso': typeof PaginaSucessoRoute
   '/perfilUsuario': typeof PerfilUsuarioRoute
   '/recuperarSenha': typeof RecuperarSenhaRoute
@@ -97,6 +106,7 @@ export interface FileRouteTypes {
     | '/cadastro'
     | '/carrinho'
     | '/login'
+    | '/paginaPagamento'
     | '/paginaSucesso'
     | '/perfilUsuario'
     | '/recuperarSenha'
@@ -107,6 +117,7 @@ export interface FileRouteTypes {
     | '/cadastro'
     | '/carrinho'
     | '/login'
+    | '/paginaPagamento'
     | '/paginaSucesso'
     | '/perfilUsuario'
     | '/recuperarSenha'
@@ -117,6 +128,7 @@ export interface FileRouteTypes {
     | '/cadastro'
     | '/carrinho'
     | '/login'
+    | '/paginaPagamento'
     | '/paginaSucesso'
     | '/perfilUsuario'
     | '/recuperarSenha'
@@ -128,6 +140,7 @@ export interface RootRouteChildren {
   CadastroRoute: typeof CadastroRoute
   CarrinhoRoute: typeof CarrinhoRoute
   LoginRoute: typeof LoginRoute
+  PaginaPagamentoRoute: typeof PaginaPagamentoRoute
   PaginaSucessoRoute: typeof PaginaSucessoRoute
   PerfilUsuarioRoute: typeof PerfilUsuarioRoute
   RecuperarSenhaRoute: typeof RecuperarSenhaRoute
@@ -155,6 +168,13 @@ declare module '@tanstack/react-router' {
       path: '/paginaSucesso'
       fullPath: '/paginaSucesso'
       preLoaderRoute: typeof PaginaSucessoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/paginaPagamento': {
+      id: '/paginaPagamento'
+      path: '/paginaPagamento'
+      fullPath: '/paginaPagamento'
+      preLoaderRoute: typeof PaginaPagamentoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/login': {
@@ -200,6 +220,7 @@ const rootRouteChildren: RootRouteChildren = {
   CadastroRoute: CadastroRoute,
   CarrinhoRoute: CarrinhoRoute,
   LoginRoute: LoginRoute,
+  PaginaPagamentoRoute: PaginaPagamentoRoute,
   PaginaSucessoRoute: PaginaSucessoRoute,
   PerfilUsuarioRoute: PerfilUsuarioRoute,
   RecuperarSenhaRoute: RecuperarSenhaRoute,

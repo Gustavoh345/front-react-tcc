@@ -8,6 +8,7 @@ import { useNavigate } from "@tanstack/react-router";
 //import para tornar a parte de quando add um produto ao carrinho
 //apareça a mensagem "produto adicionado ao carrinho" de forma mais profissional
 import toast from "react-hot-toast";
+import { useCart } from "../../context/CartContext";
 
 
 
@@ -26,6 +27,8 @@ export function ProdutoPage() {
   //podermos visualizar o desenvolvimento da pagina de sucesso
   const navigate = useNavigate();
 
+  const { adicionarAoCarrinho } = useCart();
+  
   // TODO: integrar com API futuramente para buscar dados reais do produto
 
   // Se nenhum produto for encontrado, exibimos uma mensagem visualmente mais trabalhada.
@@ -166,7 +169,7 @@ export function ProdutoPage() {
                         onClick=
                         {() => navigate
                           ({
-                            to: "/PaginaSucesso",
+                            to: "/paginaPagamento",
                             state: {
                               produto: produto.nome,
                               preco: produto.preco,
@@ -184,7 +187,7 @@ export function ProdutoPage() {
                         icon={<ShoppingCart className="h-5 w-5" />}
                         variant="secondary"
                         className="h-14 w-full text-base font-semibold sm:text-lg"
-                        
+                        onClick={() => adicionarAoCarrinho(produto)}
                       >
                         Adicionar ao carrinho
                       </Botao>

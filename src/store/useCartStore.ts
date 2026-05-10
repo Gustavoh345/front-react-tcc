@@ -5,7 +5,7 @@ import { create } from "zustand";
 
 // 🧩 Tipo que representa um PRODUTO vindo do backend
 export type Produto = {
-  id: number;            // Identificador único do produto
+  id: string;            // Identificador único do produto
   nome: string;          // Nome do produto
   preco: number;         // Preço do produto
   imagem?: string;       // URL da imagem (opcional)
@@ -26,9 +26,9 @@ type CartStore = {
 
   // Funções (ações) para manipular o carrinho
   addItem: (produto: Produto) => void;
-  removeItem: (id: number) => void;
-  increaseQuantity: (id: number) => void;
-  decreaseQuantity: (id: number) => void;
+  removeItem: (id: string) => void;
+  increaseQuantity: (id: string) => void;
+  decreaseQuantity: (id: string) => void;
   clearCart: () => void;
   getTotal: () => number;
 };
