@@ -1,4 +1,4 @@
-import { useNavigate } from "@tanstack/react-router";
+import { useNavigate, Navigate } from "@tanstack/react-router";
 import { ShoppingBag } from "lucide-react";
 import { Botao } from "../../Components/Botao";
 import { CartItem } from "../../Components/cart/CartItem";
@@ -8,12 +8,14 @@ import { useCartStore } from "../../store/useCartStore";
 import { Spotlight } from "../../Components/home/SpotLight";
 import { useCart } from "../../context/CartContext";
 import { useState } from "react";
+import { useParams } from "@tanstack/react-router";
+import { produtosMock } from "../../data/produtos";
 import type { CartItemType } from "../../context/CartContext";
 
 import { Link } from "@tanstack/react-router";
 
 export function CarrinhoPage() {
-  const navigate = useNavigate();
+  const Navigate = useNavigate();
   //const items = useCartStore((state) => state.items);
   //const removeItem = useCartStore((state) => state.removeItem);
   //const increaseQuantity = useCartStore((state) => state.increaseQuantity);
@@ -23,7 +25,10 @@ export function CarrinhoPage() {
   const { carrinhoItens, increaseQuantity, decreaseQuantity, removeItem } = useCart();
   const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
   
+  const { id } = useParams({ strict: false });
+  const produto = produtosMock.find((p) => p.id === id);
 
+  const navigate = useNavigate();
   const handleGoToStore = () => {
     navigate({ to: "/" });
   };
@@ -90,7 +95,12 @@ export function CarrinhoPage() {
               <CartSummary subtotal={total} />
 
               <Botao
-              className="h-14 rounded-2xl bg-yellow-400 text-black shadow-[0_0_36px_rgba(250,204,21,0.18)] hover:bg-yellow-300">
+              className="h-14 rounded-2xl bg-yellow-400 text-black shadow-[0_0_36px_rgba(250,204,21,0.18)] hover:bg-yellow-300"
+              onClick={() => navigate({
+                to: "/paginaPagamento"
+              })}
+                        
+              >
                 Finalizar compra
               </Botao>
             </>

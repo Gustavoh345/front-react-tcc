@@ -187,7 +187,13 @@ export function ProdutoPage() {
                         icon={<ShoppingCart className="h-5 w-5" />}
                         variant="secondary"
                         className="h-14 w-full text-base font-semibold sm:text-lg"
-                        onClick={() => adicionarAoCarrinho(produto)}
+                        onClick={() => 
+                                      {
+                                        adicionarAoCarrinho(produto)
+                                        console.log("Produto adicionado")
+                                        alert("Produto adicionado ao carrinho com sucesso!!") 
+                                      }
+                                }
                       >
                         Adicionar ao carrinho
                       </Botao>

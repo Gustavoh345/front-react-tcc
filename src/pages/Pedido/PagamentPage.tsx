@@ -2,7 +2,7 @@ import { PageLayout } from "../../Components/PageLayout";
 import { useState } from "react";
 import { produtosMock } from "../../data/produtos";
 import { createMockImage } from "../../data/produtos";
-import { useParams } from "@tanstack/react-router";
+import { useNavigate, useParams } from "@tanstack/react-router";
 import { Input } from "../../Components/Input";
 
 export function PagamentPage() {
@@ -12,6 +12,8 @@ export function PagamentPage() {
     const produtos = produtosMock.find((p) => p.id === id);
 
     const carrinhoItens = produtos ? [produtos] : [];
+
+    const navigate = useNavigate(); 
 
 
     return (
@@ -62,8 +64,8 @@ export function PagamentPage() {
                             {/*Caso o método de pagamento for no crédito, aparecerá dois inputs para a coleta de dados do cartão */}
                             {metodo === "credito" && (
                                 <div className="space-y-2">
-                                    <Input placeholder="Número do cartão"/>
-                                    <Input placeholder="Validade"/>
+                                    <Input required placeholder="Número do cartão"/>
+                                    <Input required placeholder="Validade"/>
                                 </div>
                             )}
 
@@ -101,7 +103,10 @@ export function PagamentPage() {
                             </div>
 
                             <button
-                            className="w-full bg-yellow-400 text-black py-3 rounded-xl">
+                            className="w-full bg-yellow-400 text-black py-3 rounded-xl"
+                            onClick={() => navigate({
+                                to:"/paginaSucesso"
+                            })}>
                                 Finalizar compra
                             </button>
 
