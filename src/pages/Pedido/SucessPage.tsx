@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "@tanstack/react-router";
 import { PageLayout } from "../../Components/PageLayout";
 import { Botao } from "../../Components/Botao";
 import { CheckCircle, Home, HomeIcon, ShoppingCart } from "lucide-react";
+import { useCart } from "../../context/CartContext";
 
 
 
@@ -15,8 +16,12 @@ export function SuccessPage() {
   // Dados vindos da ProductPage
   const { produto, preco, id } = location.state || {};
 
+  const carrinhoItens = useCart();
+
+  //const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+
   // Caso o usuário entre direto na rota sem dados
-  if (!produto) {
+  if (!carrinhoItens) {
     return (
       <PageLayout>
         <div className="flex items-center justify-center min-h-screen text-white">
@@ -68,7 +73,7 @@ export function SuccessPage() {
             <div className="flex justify-between">
               <span className="text-gray-400">Preço:</span>
               <span className="text-yellow-500 font-bold">
-                R$ {preco}
+                R$ {}
               </span>
             </div>
 

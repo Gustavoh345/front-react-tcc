@@ -201,26 +201,6 @@ export function ProdutoPage() {
                     </div>
                   </div>
                 </div>
-                
-
-                {/* Este bloco inferior funciona como descricao temporaria da pagina.
-                    Ele cria uma segunda camada de informacao, com menos peso visual que titulo e preco. */}
-                <div className="mt-8 rounded-[24px] border border-white/10 bg-black/20 p-5 sm:p-6">
-                  {/* Aqui usamos h2 porque esta secao eh importante dentro da pagina,
-                      mas nao deve competir semanticamente com o nome principal do produto. */}
-                  <h2 className="text-xl font-semibold text-white sm:text-2xl">
-                    Pagina de produto em construcao
-                  </h2>
-
-                  {/* "leading-7" melhora a leitura em blocos de texto corrido.
-                      "text-neutral-300" mantem contraste bom sem usar branco puro em tudo. */}
-                  <p className="mt-3 text-sm leading-7 text-neutral-300 sm:text-base">
-                    Esta estrutura ja foi reorganizada para oferecer uma experiencia mais
-                    profissional, responsiva e coerente com o restante do projeto. Quando a
-                    integracao real estiver pronta, esta area podera receber descricao,
-                    especificacoes tecnicas, variacoes e informacoes adicionais do produto.
-                  </p>
-                </div>
               </div>
             </div>
           </section>

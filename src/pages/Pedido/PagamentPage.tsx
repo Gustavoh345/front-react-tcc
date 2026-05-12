@@ -4,17 +4,16 @@ import { produtosMock } from "../../data/produtos";
 import { createMockImage } from "../../data/produtos";
 import { useNavigate, useParams } from "@tanstack/react-router";
 import { Input } from "../../Components/Input";
+import { useCart } from "../../context/CartContext";
 
 export function PagamentPage() {
     const [metodo, setMetodo] = useState("pix");
-    
-    const { id } = useParams({ strict: false });
-    const produtos = produtosMock.find((p) => p.id === id);
 
-    const carrinhoItens = produtos ? [produtos] : [];
+    const { carrinhoItens } = useCart();
 
     const navigate = useNavigate(); 
 
+    const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
 
     return (
         <PageLayout>
@@ -87,19 +86,23 @@ export function PagamentPage() {
 
                             {carrinhoItens.map((item) => (
                                 <div key={item.id} className="flex gap-3">
-                                    <img src={item.imagem} className="w-16 h-16 rounded-lg" />
+                                    <img src={item.imagem} className="w-16 h-16 rounded-2xl" />
 
-                                    <div className="flex-1">
-                                        <p className="text-sm">{item.nome}</p>
-                                        <p className="text-yellow-400 font-semibold">
-                                            {item.preco}
-                                        </p>
+                                    <div className="flex-1 py-2">
+                                        <p className="text-[16px] pb-2">{item.nome}</p>
+                                        <p className="font-semibold">Valor unitário: {item.preco}</p>
+                                        <p className="">Quantidade: {item.quantidade}</p>
+                                        <p className="text-yellow-400">Valor total: {item.quantidade * item.preco}</p>
+
                                     </div>
                                 </div>
                             ))}
 
                             <div className="border-t border-white/10 pt-4">
-                                <p>Total: R$ {produtos?.preco}</p>
+                                <div className="flex font-bold text-[30px]">
+                                    <p className="px-3">Total: </p>
+                                    <p className="text-emerald-300">R$ {total.toFixed(2)}</p>
+                                </div>
                             </div>
 
                             <button

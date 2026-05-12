@@ -16,11 +16,6 @@ import { Link } from "@tanstack/react-router";
 
 export function CarrinhoPage() {
   const Navigate = useNavigate();
-  //const items = useCartStore((state) => state.items);
-  //const removeItem = useCartStore((state) => state.removeItem);
-  //const increaseQuantity = useCartStore((state) => state.increaseQuantity);
-  //const decreaseQuantity = useCartStore((state) => state.decreaseQuantity);
-  //const total = useCartStore((state) => state.getTotal());
 
   const { carrinhoItens, increaseQuantity, decreaseQuantity, removeItem } = useCart();
   const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
