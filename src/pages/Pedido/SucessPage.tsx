@@ -3,6 +3,9 @@ import { PageLayout } from "../../Components/PageLayout";
 import { Botao } from "../../Components/Botao";
 import { CheckCircle, Home, HomeIcon, ShoppingCart } from "lucide-react";
 import { useCart } from "../../context/CartContext";
+import { CartSummary } from "../../Components/cart/CartSummary";
+import { CartItem } from "../../Components/cart/CartItem";
+ 
 
 
 
@@ -13,10 +16,11 @@ export function SuccessPage() {
   // Hook para redirecionamento
   const navigate = useNavigate();
 
+  const { carrinhoItens } = useCart();
+  const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
+
   // Dados vindos da ProductPage
   const { produto, preco, id } = location.state || {};
-
-  const carrinhoItens = useCart();
 
   //const total = carrinhoItens.reduce((acc, item) => acc + item.preco * item.quantidade, 0);
 
@@ -62,18 +66,21 @@ export function SuccessPage() {
             
             <div className="flex justify-between">
               <span className="text-gray-400">Produto:</span>
-              <span>{produto}</span>
+              <span>{carrinhoItens.map((item) => (
+                                <CartItem
+                                  key={item.id}
+                                  item={item}
+                                  
+                                />
+                              ))}</span>
             </div>
 
-            <div className="flex justify-between">
-              <span className="text-gray-400">ID do Produto:</span>
-              <span>{id}</span>
-            </div>
+            
 
             <div className="flex justify-between">
               <span className="text-gray-400">Preço:</span>
               <span className="text-yellow-500 font-bold">
-                R$ {}
+                 <CartSummary subtotal={total}/>
               </span>
             </div>
 
