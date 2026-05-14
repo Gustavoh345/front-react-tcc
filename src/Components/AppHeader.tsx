@@ -43,7 +43,7 @@ export default function AppHeader() {
             <img
               src={LogoOmnimarket}
               alt="Logo do OmniMarket"
-              className="h-14 w-14 rounded-2xl object-cover"
+              className="h-14 w-14 rounded-2xl object-cover hover:animate-spin"
             />
 
             <div className="space-y-1">
