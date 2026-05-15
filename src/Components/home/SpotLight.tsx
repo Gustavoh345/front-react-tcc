@@ -26,13 +26,13 @@ export function Spotlight({ children }: Props) {
     <div
       ref={ref}
       onMouseMove={handleMouseMove}
-      className="group relative overflow-hidden"
+      className="group relative overflow-hidden rounded-[32px]"
     >
       {/* Luz */}
       <div
-        className="pointer-events-none absolute inset-0 z-10 opacity-0 transition-opacity duration-300 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 z-10 opacity-0 blur-3x1 transition-opacity duration-300 group-hover:opacity-100"
         style={{
-          background: `radial-gradient(circle at var(--x) var(--y), rgba(250,204,21,0.35), transparent 40%)`,
+          background: `radial-gradient(circle at var(--x) var(--y), rgba(250,204,21,0.20), transparent 40%)`,
         }}
       />
 

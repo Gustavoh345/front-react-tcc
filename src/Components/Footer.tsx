@@ -1,39 +1,7 @@
-import { Link } from "@tanstack/react-router";
 import LogoOmnimarket from "../assets/Logo_omnimarket.jpg";
-import { Facebook, Instagram } from "lucide-react";
-import { FaFacebook, FaGithub, FaInstagram, FaTwitter, FaWhatsapp } from "react-icons/fa";
+import { FaFacebook, FaGithub, FaInstagram, FaTwitter, FaWhatsapp, FaYoutube } from "react-icons/fa";
 import { FaLinkedin } from "react-icons/fa6";
 export default function Footer() {
-
-    /*return(
-        <footer className="border-t border-white/10 bg-black text-white">
-            <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 py-12 lg:flex-row lg:justify-between">
-
-            </div>
-        </footer>
-    )*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
   return (
     <footer className="border-t border-white/10 bg-black text-white">
@@ -41,7 +9,7 @@ export default function Footer() {
 
         {/* ESQUERDA */}
         <div className="max-w-sm space-y-4">
-            <div className="flex">
+            <div className="flex items-center gap-4">
 
                 <img
                     src={LogoOmnimarket}
@@ -50,30 +18,14 @@ export default function Footer() {
                 />
             
                 <h2 className="text-2xl font-bold tracking-tight text-yellow-400">
-                    SuaLoja
+                    Omnimarket
                 </h2>
             </div>
 
           <p className="text-sm leading-6 text-neutral-400">
-            Produtos premium com visual moderno, experiência elegante
-            e foco total na qualidade.
+            Produtos de alta qualidade em um site com visual moderno, experiência elegante
+            e com foco total na qualidade.
           </p>
-
-          <div className="flex gap-3">
-            <a
-              href="#"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-yellow-400/30 hover:bg-yellow-400/10 hover:text-yellow-300"
-            >
-              Instagram
-            </a>
-
-            <a
-              href="#"
-              className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm transition hover:border-yellow-400/30 hover:bg-yellow-400/10 hover:text-yellow-300"
-            >
-              GitHub
-            </a>
-          </div>
         </div>
 
         {/* CENTRO */}
@@ -120,6 +72,12 @@ export default function Footer() {
                   <FaGithub className="h-5 w-5" />
                 </a>
               </li>
+
+              <li>
+                <a href="#" className="transition hover:text-yellow-300">
+                  <FaYoutube className="h-5 w-5" />
+                </a>
+              </li>
             </ul>
           </div>
 
@@ -151,26 +109,38 @@ export default function Footer() {
 
           <div className="space-y-4">
             <h3 className="text-sm font-semibold uppercase tracking-[0.2em] text-neutral-500">
-              Conta
+              Participantes
             </h3>
 
             <ul className="space-y-3 text-sm text-neutral-400">
               <li>
-                <a href="#" className="transition hover:text-yellow-300">
-                  Login
-                </a>
+                <p className="transition hover:text-yellow-300">
+                  Felipe Sardinha Miguel
+                </p>
               </li>
 
               <li>
-                <a href="#" className="transition hover:text-yellow-300">
-                  Cadastro
-                </a>
+                <p className="transition hover:text-yellow-300">
+                  Gustavo Henrique da Silva
+                </p>
               </li>
 
               <li>
-                <a href="#" className="transition hover:text-yellow-300">
-                  Meus pedidos
-                </a>
+                <p className="transition hover:text-yellow-300">
+                  Ikaro Dias Camargo
+                </p>
+              </li>
+
+              <li>
+                <p className="transition hover:text-yellow-300">
+                  Lucas Chani Soiler
+                </p>
+              </li>
+
+              <li>
+                <p className="transition hover:text-yellow-300">
+                  Mauro Alexandre da Silva Roque
+                </p>
               </li>
             </ul>
           </div>
